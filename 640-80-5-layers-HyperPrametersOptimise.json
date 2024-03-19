@@ -1,0 +1,89 @@
+{
+	"data": {
+		"filename": "HyperParametersOptimise_4s.csv",
+		"visual_filename_test1": "revise_test1.csv",
+		"visual_filename_test2": "revise_test2.csv",
+		"visual_filename1": "/home/shh/Desktop/LSTM_Final/data/HyperParametersOptimise_10_csv/test1.csv",
+		"visual_filename2": "/home/shh/Desktop/LSTM_Final/data/HyperParametersOptimise_10_csv/test2.csv",
+		"visual_filename3": "/home/shh/Desktop/LSTM_Final/data/HyperParametersOptimise_10_csv/test3.csv",
+		"visual_filename4": "/home/shh/Desktop/LSTM_Final/data/HyperParametersOptimise_10_csv/test4.csv",
+		"visual_filename5": "/home/shh/Desktop/LSTM_Final/data/HyperParametersOptimise_10_csv/test5.csv",
+		"visual_filename6": "/home/shh/Desktop/LSTM_Final/data/HyperParametersOptimise_10_csv/test6.csv",
+		"visual_filename7": "/home/shh/Desktop/LSTM_Final/data/HyperParametersOptimise_10_csv/test7.csv",
+		"visual_filename8": "/home/shh/Desktop/LSTM_Final/data/HyperParametersOptimise_10_csv/test8.csv",
+		"visual_filename9": "/home/shh/Desktop/LSTM_Final/data/HyperParametersOptimise_10_csv/test9.csv",
+		"visual_filename10": "/home/shh/Desktop/LSTM_Final/data/HyperParametersOptimise_10_csv/test10.csv",
+		"visual_filename_columns":["wave"],
+		"columns": [
+			"RyanSpeech_HPO"
+		],
+		"sequence_length": 640,
+		"train_test_split": 0.85,
+		"visualization_full_split": 0,
+		"predict_seqlenght": 80,
+		"normalise": true
+	},
+	"training": {
+		"epochs": 50,
+		"batch_size": 1024
+	},
+	"model": {
+		"loss": "mse",
+		"optimizer": "adam",
+		"save_dir": "saved_models/paper_revising/HyperParameterOptimise/redo/",
+		"layers": [
+			{
+				"type": "lstm",
+				"neurons": 100,
+				"input_timesteps": 639,
+				"input_dim": 1,
+				"return_seq": true
+			},
+			{
+				"type": "dropout",
+				"rate": 0.4
+			},
+			{
+				"type": "lstm",
+				"neurons": 100,
+				"return_seq": true
+			},
+			{
+				"type": "dropout",
+				"rate": 0.4
+			},
+			{
+				"type": "lstm",
+				"neurons": 100,
+				"return_seq": true
+			},
+			{
+				"type": "dropout",
+				"rate": 0.4
+			},
+			{
+				"type": "lstm",
+				"neurons": 100,
+				"return_seq": true
+			},
+			{
+				"type": "dropout",
+				"rate": 0.4
+			},
+			{
+				"type": "lstm",
+				"neurons": 100,
+				"return_seq": false
+			},
+			{
+				"type": "dropout",
+				"rate": 0.4
+			},
+			{
+				"type": "dense",
+				"neurons": 1,
+				"activation": "linear"
+			}
+		]
+	}
+}

@@ -1,0 +1,71 @@
+{
+	"data": {
+		"visual_filename1": "/home/shh/ANewDisk/dataset_building/TEST-auidos-summary/MultiSpeaker/LibriNEW3/test1.csv",
+		"visual_filename2": "/home/shh/ANewDisk/dataset_building/TEST-auidos-summary/MultiSpeaker/LibriNEW3/test2.csv",
+		"visual_filename3": "/home/shh/ANewDisk/dataset_building/TEST-auidos-summary/MultiSpeaker/LibriNEW3/test3.csv",
+		"visual_filename4": "/home/shh/ANewDisk/dataset_building/TEST-auidos-summary/MultiSpeaker/LibriNEW3/test4.csv",
+		"visual_filename5": "/home/shh/ANewDisk/dataset_building/TEST-auidos-summary/MultiSpeaker/LibriNEW3/test5.csv",
+		"visual_filename6": "/home/shh/ANewDisk/dataset_building/TEST-auidos-summary/MultiSpeaker/LibriNEW3/test6.csv",
+		"visual_filename7": "/home/shh/ANewDisk/dataset_building/TEST-auidos-summary/MultiSpeaker/LibriNEW3/test7.csv",
+		"visual_filename8": "/home/shh/ANewDisk/dataset_building/TEST-auidos-summary/MultiSpeaker/LibriNEW3/test8.csv",
+		"visual_filename9": "/home/shh/ANewDisk/dataset_building/TEST-auidos-summary/MultiSpeaker/LibriNEW3/test9.csv",
+		"visual_filename10": "/home/shh/ANewDisk/dataset_building/TEST-auidos-summary/MultiSpeaker/LibriNEW3/test10.csv",
+		"visual_filename_columns":["wave0","wave1","wave2","wave3","wave4","wave5","wave6","wave7","wave8","wave9"],
+		"sequence_length": 640,
+		"train_test_split": 0.85,
+		"visualization_full_split": 0,
+		"predict_seqlenght": 80,
+		"normalise": true
+	},
+	"training": {
+		"epochs": 100,
+		"batch_size": 1024
+	},
+	"model": {
+		"loss": "mse",
+		"optimizer": "adam",
+		"save_dir": "saved_models/paper_revising/",
+		"layers": [
+			{
+				"type": "lstm",
+				"neurons": 100,
+				"input_timesteps": 639,
+				"input_dim": 10,
+				"return_seq": true
+			},
+			{
+				"type": "dropout",
+				"rate": 0.4
+			},
+			{
+				"type": "lstm",
+				"neurons": 100,
+				"return_seq": true
+			},
+			{
+				"type": "lstm",
+				"neurons": 100,
+				"return_seq": true
+			},
+			{
+				"type": "lstm",
+				"neurons": 100,
+				"return_seq": true
+			},
+			{
+				"type": "lstm",
+				"neurons": 100,
+				"return_seq": false
+			},
+			{
+				"type": "dropout",
+				"rate": 0.4
+			},
+			{
+				"type": "dense",
+				"neurons": 1,
+				"activation": "linear"
+			}
+		]
+	}
+}
